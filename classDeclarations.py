@@ -54,11 +54,7 @@ class anagram(turboString):  # will inherit from turboString
     def __init__(self, initialStr):
         # w. super we inherit all methods and initialize same way
         super().__init__(initialStr)
-        # must define below as self, continues pattern:
-        # outputs {[]} # a cool band name; also initialize empty list of anagrams
-        self.bankofAnaGrahamA = []
-        self.bankofAnaGrahamB = []  # outputs {}
-        self.bankofAnaGrahamC = []
+        self.bankofAnaGraham = []  # a cool band name; also initialize empty list of anagrams
 
     # methods of anagram --------
 

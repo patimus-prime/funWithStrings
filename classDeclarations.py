@@ -1,4 +1,4 @@
-# stringClasses.py
+# classDeclarations.py
 # 21 July 2022
 # Patrick Finnerty
 
@@ -9,6 +9,11 @@
 from itertools import permutations as mutator
 
 
+###############
+# HUGE WARNING: MAY NEED TO DO TOUPPER() or tolower() below on input strings
+# depending on methods/how python treats the capitals/what's desirable
+# for now forging ahead without, but a note that this is a consideration
+###############
 class turboString:
     def __init__(self, initialStr):
         # beware maybe need something to account for if already declared?
@@ -50,38 +55,43 @@ class anagram(turboString):  # will inherit from turboString
         # w. super we inherit all methods and initialize same way
         super().__init__(initialStr)
         # must define below as self, continues pattern:
-        self.bankofAnaGraham = []  # a cool band name; also initialize empty list of anagrams
+        # outputs {[]} # a cool band name; also initialize empty list of anagrams
+        self.bankofAnaGrahamA = []
+        self.bankofAnaGrahamB = []  # outputs {}
+        self.bankofAnaGrahamC = []
 
     # methods of anagram --------
+
     def anagramGenerator(self):
         # a lot here: mutate self.string to everything, mutator outputs characters;
         # each time that happens we join, spacing with nothing (''), and create a string
         # we iterate through those strings with very descriptive iterator 'potentialDuplicateAnagram'
-        # then we use set to exclude duplicates, and append.
-        # not sure if wise to not have an intermediate object to hold strings, but w/e we'll see
+        # then we use set to exclude duplicates. AND THEN...
+        # we call list on the set object to get back to a list; set has no
+        # useful attributes, just a nice way to get the unique anagrams, no dupes
+        # .append and just = set aren't good. don't do that. go back to list
 
-        # not sure if we append or set equal
-        self.bankofAnaGrahamA.append(
-            set(''.join(potentialDuplicateAnagaram)
-                for potentialDuplicateAnagaram in mutator(self.string)))
-        # may then set equal and set after, dunno
-        self.bankofAnaGrahamB = (
-            set(''.join(potentialDuplicateAnagaram)
-                for potentialDuplicateAnagaram in mutator(self.string)))
+        self.bankofAnaGraham = list(set(''.join(potentialDuplicateAnagaram)
+                                        for potentialDuplicateAnagaram in mutator(self.string)))  # compiler is crazy no need for \
 
 
 class palindrome(turboString):
     def __init__(self, initialStr):
         super().__init__(initialStr)  # .string for palindrome will be baseString
-        self.stringPalindrome = self.mirrorGivenStr(
-            self.string)  # THAT'S SO CRAZY LOL
+        self.isPalindrome = self.isMyPalindrome(initialStr)
+        # this returns the reverse of the input string...
+        # but that's all it is.
+        # rather we should have an attrbiute to hold T/F palindrome;
+        # the string will already be a palindrome.
+        # self.stringPalindrome = self.mirrorGivenStr(
+        #    self.string)  # THAT'S SO CRAZY LOL
 
     # methods ----
 
     # this one returns boolean if some inputted string is a palindrome of this
     # object or what
     def isMyPalindrome(self, potentialPal):
-        if (self.stringPalindrome == potentialPal):
+        if (self.string == self.mirrorGivenStr(potentialPal)):
             return True
         else:
             return False

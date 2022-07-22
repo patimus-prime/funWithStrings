@@ -42,12 +42,16 @@ class turboString:
         return givenStr
 
     # I/O operations; I suspect unlikely to be used during this project: -------
-    # Hmmmm...
-    # A few optionsl declare a list of this type and feed in mucho strings
-    # i.e. with the web page, could save as file and input here; unclear what that looks like
-    # for writing, again could need a couple methods to output a list or just a string
+    def readInFileAsString(self, filePath):
+        # this is a pretty sus operation, but here it is:
+        temp = open(filePath, "r")
+        self.string = temp
+        temp.close()
 
-    # FIXME: COME BACK LATER AND ADD DESIRABLE METHODS
+    def writeStringAsFile(self, filePath):
+        temp = open(filePath, "w")
+        temp.write(self.string)
+        temp.close()
 
 
 class anagram(turboString):  # will inherit from turboString

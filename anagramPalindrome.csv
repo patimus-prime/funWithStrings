@@ -1,0 +1,31 @@
+	words	palindrome_list	anagram_list	has_palindrome	has_anagram
+0	mantine	[]	[]	False	False
+1	next	[]	[]	False	False
+2	example	[]	[]	False	False
+3	my	[]	[]	False	False
+4	dog	[['god', 23]]	[['god', 23]]	True	True
+5	deserves	[]	[]	False	False
+6	the	[]	[]	False	False
+7	best	[]	[]	False	False
+8	including	[]	[]	False	False
+9	the	[]	[]	False	False
+10	best	[]	[]	False	False
+11	website	[]	[]	False	False
+12	its	[]	[]	False	False
+13	not	[['ton', 24]]	[['ton', 24], ['ont', 26]]	True	True
+14	done	[]	[]	False	False
+15	yet	[]	[]	False	False
+16	but	[]	[['ubt', 27]]	False	True
+17	anyway	[]	[]	False	False
+18	you	[]	[]	False	False
+19	cant	[]	[]	False	False
+20	rush	[]	[['surh', 25]]	False	True
+21	perfection	[]	[]	False	False
+22	test	[]	[]	False	False
+23	god	[['dog', 4]]	[['dog', 4]]	True	True
+24	ton	[['not', 13]]	[['not', 13], ['ont', 26]]	True	True
+25	surh	[]	[['rush', 20]]	False	True
+26	ont	[]	[['not', 13], ['ton', 24]]	False	True
+27	ubt	[]	[['but', 16]]	False	True
+28	get	[]	[]	False	False
+29	started	[]	[]	False	False

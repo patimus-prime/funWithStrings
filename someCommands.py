@@ -1,3 +1,4 @@
+# coding: utf-8
 # typo or test?
 # anagram_palyndrom_finder.py
 # 21 July 2022
@@ -22,8 +23,7 @@ from bs4 import BeautifulSoup as BS  # this is BS
 
 # NOTE: if warning on importing, change py version in VSCode. weird error
 import requests as RQ
-# regular expressions
-import re
+
 # -------------------------------------------------------------
 
 # use the site i'm developing as a negative case
@@ -40,34 +40,47 @@ soup = BS(webPage.content, 'html.parser')
 
 # almost same as .text; but this lets us enforce a delimiter
 strToParse = soup.get_text(" ")
-
-# lower all capitals, make sure our stuff picks up on everything:
-# does alter data a little I guess; one can look at indeces later to find source word
-# or declare an extra object 'unaltered str' and then cross-ref with strToParse
+strToParse.lower
+print(strToParse.lower)
+strToParse
+strToParse.lower()
+strToparse
+strToParse
 strToParse = strToParse.lower()
-# print(strToParse) # PERFECT!
-
-# we must now add each word, delimited by a space, to a list, which will then be fed into
-# another fn.
+strToParse
 wordList = strToParse.split()
-
-# this preserves "--" though and some punctuation that'll mess our stuff up,
-# so to remove, iterate through words and if there's punctuation, take it out:
-# reg ex sets anything not an alphanumeric to NOTHING
+wordList
+import re
+re.sub(r'\W+','',strToParse)
+strToParse
+re.sub(r'\W+', '',strToParse)
+re.sub(r'\W+', ',strToParse)
+re.sub(r'\W+', ' ', strToParse)
+# shit... so let's instead...
+wordList = strToParse.split()
+wordList
 for i in range(len(wordList)):
-    wordList[i] = re.sub(r'\W+', '', wordList[i])
-
-# then remove the NOTHING:
+    re.sub(r'\W+','',wordList[i])
+    
+wordList
+for i in range(len(wordList)):
+    wordList = re.sub(r'\W+','',wordList[i])
+wordList
+wordList = strToParse.split()
+for i in range(len(wordList)):
+    wordList = re.sub(r'\W+','',wordList[i])
+    
+strToParse
+wordList = strToParse.split()
+wordList
+for i in range(len(wordList)):
+    re.sub(r'\W+','',wordList[i])
+    
+wordList
+wordList[0]
+for i in range(len(wordList)):
+   wordList[i] =  re.sub(r'\W+','',wordList[i])
+wordList
+wordList.remove()
 wordList.remove('')
-
-# EXCELLENT!!!!!!!!!!
-# https://youtu.be/sMqQOGTshak?t=41
-
-
-# need to separate out \w for words if that's enough, but also split by " " and capitals,
-# probably also punctuation. After that we'll have a nice str or list, however we do it.
-
-
-# this works; C is now just the only bank
-# for i in range(len(a.bankofAnaGrahamC)):
-# print(i,"is",a.bankofAnaGrahamC[i])
+wordList
